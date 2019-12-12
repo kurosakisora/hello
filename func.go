@@ -1,5 +1,5 @@
 package api
 
 func Bbc() string {
-	return "v3.2.2"
+	return "v4.2.2"
 }
