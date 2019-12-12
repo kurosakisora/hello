@@ -1,2 +1,2 @@
 
-github.com/kurosakisora/hello/v5
+modle github.com/kurosakisora/hello/v5
