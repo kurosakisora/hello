@@ -1,13 +1,12 @@
 kind: pipeline
-type: kubernetes
+type: docker
 name: default
    
 steps:
-- name: test
-  image: nginx
+- name: clone production
+  image: alpine/git
   commands:
-  - echo hello
-  - echo world
+  - git clone -b production git@github.com:kurosakisora/hello.git
 trigger:
   event:
   - push
