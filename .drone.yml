@@ -7,12 +7,12 @@ environment:
   GOOS: linux
 steps:
 - name: clone production
-  image: alpine/git
+  image: xarc/git
   commands:
   - echo $GOOS
   - echo $HOME
   - echo $${GOARCH}
-  #  - git clone -b production git@github.com:kurosakisora/hello.git
+  - git clone -b production git@github.com:kurosakisora/hello.git
 trigger:
   event:
   - push
