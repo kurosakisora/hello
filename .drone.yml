@@ -10,6 +10,7 @@ steps:
   image: alpine/git
   commands:
   - echo $GOOS
+  - echo $HOME
   - echo $${GOARCH}
   #  - git clone -b production git@github.com:kurosakisora/hello.git
 trigger:
