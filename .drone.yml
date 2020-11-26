@@ -1,12 +1,19 @@
 kind: pipeline
 type: docker
 name: default
-   
+
+environment:
+  GOARCH: amd64
+  GOOS: linux
 steps:
 - name: clone production
   image: alpine/git
   commands:
-  - git clone -b production git@github.com:kurosakisora/hello.git
+  - echo $GOOS
+  - echo $${GOARCH}
+  #  - git clone -b production git@github.com:kurosakisora/hello.git
 trigger:
   event:
   - push
+  branch:
+  - production
