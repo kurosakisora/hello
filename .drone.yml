@@ -22,10 +22,6 @@ steps:
   - ls -l /
 - name: publish
   image: plugins/docker
-  commands:
-  - pwd
-  - ls -l
-  - ls -l /
   settings:
     username:
       from_secret: username
