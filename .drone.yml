@@ -7,7 +7,7 @@ environment:
   GOOS: linux
 steps:
 - name: clone production
-  image: xarc/git
+  image: harbor.atompai.com/ops/xarc-bitbucket
   commands:
   - echo $GOOS
   - echo $HOME
