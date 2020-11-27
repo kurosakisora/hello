@@ -12,8 +12,8 @@ steps:
   - pwd
   - ls -la /root/
 - name: clone production
-  image: harbor.atompai.com/ops/xarc-bitbucket
-  #image: alpine/git
+  #  image: harbor.atompai.com/ops/xarc-bitbucket
+  image: alpine/git
   #  settings:
   #    username:
   #      from_secret: username
@@ -37,8 +37,8 @@ steps:
     registry: harbor.atompai.com
     #    dockerfile: path/to/Dockerfile
 
-image_pull_secrets:
-- dockerconfig
+    #image_pull_secrets:
+    #- dockerconfig
 trigger:
   event:
   - push
