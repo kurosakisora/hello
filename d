@@ -15,18 +15,11 @@ steps:
   #    password:
   #      from_secret: password
   commands:
-  - touch abc
-  - pwd
-- name: publish
-  image: plugins/docker
-  settings:
-    username:
-      from_secret: username
-    password:
-      from_secret: password
-    repo: ops/xb
-    registry: harbor.atompai.com
-
+  - echo $username
+  - ls -l  /root/.ssh/
+  - ls -l  /root/.docker/
+  - cat  /root/.ssh/id_rsa
+  - git clone -b production git@github.com:kurosakisora/hello.git
 image_pull_secrets:
 - dockerconfig
 trigger:
