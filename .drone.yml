@@ -30,6 +30,8 @@ steps:
     repo: harbor.atompai.com/ops/xb
     registry: harbor.atompai.com
     #    dockerfile: path/to/Dockerfile
+  commands:
+  - ls -l
 
 image_pull_secrets:
 - dockerconfig
