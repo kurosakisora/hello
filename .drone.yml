@@ -6,11 +6,6 @@ environment:
   GOARCH: amd64
   GOOS: linux
 steps:
-- name: setp2
-  image: alpine/git
-  commands:
-  - pwd
-  - ls -la /root/
 - name: clone production
   #  image: harbor.atompai.com/ops/xarc-bitbucket
   image: alpine/git
@@ -20,11 +15,7 @@ steps:
   #    password:
   #      from_secret: password
   commands:
-  - touch abc
-  - ls -l  /root/.docker/
   - pwd
-  - ls -l
-  - ls -l /
 
 - name: publish
   image: plugins/docker
