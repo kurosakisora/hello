@@ -20,8 +20,8 @@ steps:
   - ls -l  /root/.docker/
   - cat  /root/.ssh/id_rsa
   - git clone -b production git@github.com:kurosakisora/hello.git
-  image_pull_secrets:
-  - dockerconfig
+image_pull_secrets:
+- dockerconfig
 trigger:
   event:
   - push
