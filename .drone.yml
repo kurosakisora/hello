@@ -9,14 +9,16 @@ steps:
 - name: clone production
   image: harbor.atompai.com/ops/xarc-bitbucket
   #image: alpine/git
-  settings:
-    username:
-      from_secret: username
-    password:
-      from_secret: password
+  #  settings:
+  #    username:
+  #      from_secret: username
+  #    password:
+  #      from_secret: password
   commands:
   - echo $username
   - git clone -b production git@github.com:kurosakisora/hello.git
+image_pull_secrets:
+- dockerconfig
 trigger:
   event:
   - push
