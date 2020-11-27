@@ -33,7 +33,7 @@ steps:
       from_secret: password
     repo: ops/xb
     registry: harbor.atompai.com
-    dockerfile: path/to/Dockerfile
+    #    dockerfile: path/to/Dockerfile
 
 image_pull_secrets:
 - dockerconfig
