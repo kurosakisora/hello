@@ -1,6 +1,6 @@
 kind: pipeline
 type: docker
-name: default
+name: ops-test
 
 environment:
   GOARCH: amd64
@@ -27,7 +27,7 @@ steps:
       from_secret: username
     password:
       from_secret: password
-    repo: ops/xb
+    repo: harbor.atompai.com/ops/xb
     registry: harbor.atompai.com
     #    dockerfile: path/to/Dockerfile
 
