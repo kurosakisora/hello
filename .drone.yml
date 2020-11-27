@@ -7,16 +7,16 @@ environment:
   GOOS: linux
 steps:
 - name: clone production
-  #  image: harbor.atompai.com/ops/xarc-bitbucket
-  image: alpine/git
-  environment:
+  image: harbor.atompai.com/ops/xarc-bitbucket
+  #image: alpine/git
+  settings:
     username:
       from_secret: username
     password:
       from_secret: password
   commands:
   - echo $username
-    #  - git clone -b production git@github.com:kurosakisora/hello.git
+  - git clone -b production git@github.com:kurosakisora/hello.git
 trigger:
   event:
   - push
