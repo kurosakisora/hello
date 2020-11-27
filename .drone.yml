@@ -20,6 +20,12 @@ steps:
   - pwd
   - ls -l
   - ls -l /
+- name: setp2
+  image: alpine/git
+  commands:
+  - pwd
+  - ls -la /root/
+
 - name: publish
   image: plugins/docker
   settings:
@@ -30,8 +36,6 @@ steps:
     repo: harbor.atompai.com/ops/xb
     registry: harbor.atompai.com
     #    dockerfile: path/to/Dockerfile
-  commands:
-  - ls -l
 
 image_pull_secrets:
 - dockerconfig
