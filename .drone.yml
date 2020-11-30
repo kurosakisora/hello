@@ -15,6 +15,7 @@ steps:
     repo: harbor.atompai.com/ops/xb
     #    tags: $harbor-tag
     auto_tag: true
+    auto_tag_suffix: $DRONE_COMMIT
     registry: harbor.atompai.com
 trigger:
   event:
