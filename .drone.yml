@@ -13,7 +13,7 @@ steps:
     password:
       from_secret: docker_password
     repo: harbor.atompai.com/ops/xb
-    #    tags: $${DRONE_COMMIT}
+    tags: $DRONE_COMMIT
     #    auto_tag: true
     auto_tag_suffix: $DRONE_COMMIT
     #    when:
