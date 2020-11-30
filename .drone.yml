@@ -13,8 +13,8 @@ steps:
     password:
       from_secret: docker_password
     repo: harbor.atompai.com/ops/xb
-    #    tags: $harbor-tag
-    auto_tag_suffix: production-${DRONE_COMMIT}
+    tags: production-${DRONE_COMMIT}
+    #auto_tag_suffix: production-${DRONE_COMMIT}
     registry: harbor.atompai.com
 trigger:
   event:
