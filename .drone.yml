@@ -14,19 +14,15 @@ steps:
     - echo $${DRONE_COMMIT}
 - name: docker build & push
   image: plugins/docker
-  commands:
-    - echo $harbor-tag
-    - echo $DRONE_COMMIT
-    - echo ${DRONE_COMMIT}
-    - echo $${DRONE_COMMIT}
   settings:
     username:
       from_secret: docker_username
     password:
       from_secret: docker_password
     repo: harbor.atompai.com/ops/xb
-    #    tags: $harbor-tag
+    # tags: $harbor-tag
     auto_tag: true
+    auto_tag_suffix: ${DRONE_COMMIT}
     registry: harbor.atompai.com
 trigger:
   event:
