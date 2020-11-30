@@ -3,7 +3,7 @@ type: docker
 name: ops-test
 
 environment:
-  GOOS: linux
+  harbor-tag: $DRONE_COMMIT
 steps:
 - name: docker build & push
   image: plugins/docker
@@ -13,13 +13,11 @@ steps:
     password:
       from_secret: docker_password
     repo: harbor.atompai.com/ops/xb
-    tags: $DRONE_COMMIT
+    tags: $harbor-tag
     #    auto_tag: true
-    auto_tag_suffix: $DRONE_COMMIT
+    auto_tag_suffix: $harbor-tag
     #    when:
     #      branch: production
-
-
     registry: harbor.atompai.com
     #    dockerfile: path/to/Dockerfile
 
