@@ -6,25 +6,16 @@ environment:
   GOARCH: amd64
   GOOS: linux
 steps:
-- name: clone production
-  #  image: harbor.atompai.com/ops/xarc-bitbucket
-  image: alpine/git
-  #  settings:
-  #    username:
-  #      from_secret: username
-  #    password:
-  #      from_secret: password
-  commands:
-  - pwd
-
-- name: publish
+- name: docker build & push
   image: plugins/docker
   settings:
     username:
-      from_secret: username
+      from_secret: docker_username
     password:
-      from_secret: password
+      from_secret: docker_password
     repo: harbor.atompai.com/ops/xb
+    tags: [ 1, 1.1, latest ]
+
     registry: harbor.atompai.com
     #    dockerfile: path/to/Dockerfile
 

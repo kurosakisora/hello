@@ -1,3 +1,3 @@
-FROM harbor.atompai.com/ops/xarc-bitbucket
+FROM nginx
 WORKDIR /app
 COPY . .
