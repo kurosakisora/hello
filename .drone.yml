@@ -3,7 +3,6 @@ type: docker
 name: ops-test
 
 environment:
-  GOARCH: amd64
   GOOS: linux
 steps:
 - name: docker build & push
@@ -14,7 +13,7 @@ steps:
     password:
       from_secret: docker_password
     repo: harbor.atompai.com/ops/xb
-    tags: [ 1, 1.1, latest ]
+    tags: $DRONE_COMMIT
 
     registry: harbor.atompai.com
     #    dockerfile: path/to/Dockerfile
