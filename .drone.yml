@@ -1,0 +1,21 @@
+kind: pipeline
+type: docker
+name: ops-test
+
+environment:
+    #  harbor-tag: $DRONE_COMMIT
+steps:
+- name: docker build & push
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    repo: harbor.atompai.com/ops/xb
+    #    tags: $harbor-tag
+    auto_tag: true
+    registry: harbor.atompai.com
+trigger:
+  event:
+  - push
