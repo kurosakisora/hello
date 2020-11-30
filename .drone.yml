@@ -13,16 +13,10 @@ steps:
     password:
       from_secret: docker_password
     repo: harbor.atompai.com/ops/xb
-    tags: $harbor-tag
-    #    auto_tag: true
-    auto_tag_suffix: $harbor-tag
-    #    when:
-    #      branch: production
+    #    tags: $harbor-tag
+    auto_tag: true
+    auto_tag_suffix: harbor-tag
     registry: harbor.atompai.com
-    #    dockerfile: path/to/Dockerfile
-
-    #image_pull_secrets:
-    #- dockerconfig
 trigger:
   event:
   - push
