@@ -16,6 +16,8 @@ steps:
     #    tags: $${DRONE_COMMIT}
     auto_tag: true
     auto_tag_suffix: $DRONE_COMMIT
+    when:
+      branch: production
 
 
     registry: harbor.atompai.com
