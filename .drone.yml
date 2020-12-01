@@ -30,8 +30,7 @@ steps:
   commands:
      - echo "$APP_ENV" > app_env_test
      - kubectl get pods
-     - kubectl delete secret db-user-pass
-     - kubectl create secret generic db-user-pass --from-file=app_env
+     - kubectl delete secret db-user-pass || kubectl create secret generic db-user-pass --from-file=app_env_test
      - kubectl delete -f deployments.yml || kubectl apply -f deployments.yml
       #    - kubectl get pods
       #    - sleep 30
