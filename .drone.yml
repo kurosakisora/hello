@@ -16,16 +16,16 @@ steps:
     registry: harbor.atompai.com
 - name: deploy
   image: harbor.atompai.com/ops/nx-k8s-deploy
-  environment:
-    APP_ENV:
-      from_secret: app_env
-    K8S_CONFIG:
-      from_secret: k8s_config
   when:
     event:
     - promote
     target:
     - production
+  environment:
+    APP_ENV:
+      from_secret: app_env
+    K8S_CONFIG:
+      from_secret: k8s_config
   commands:
       # - mkdir /root/.kube
      - echo "$APP_ENV" > app_env
