@@ -1,6 +1,6 @@
 kind: pipeline
 type: docker
-name: ops-test
+name: ops-production
 
 steps:
 - name: docker build & push
@@ -30,11 +30,7 @@ steps:
     K8S_CONFIG:
       from_secret: k8s_config
   commands:
-      # - mkdir /root/.kube
      - echo "$APP_ENV" > app_env
-       #- echo "$K8S_CONFIG" > /root/.kube/config
-     - echo "$APP_ENV"
-       #- echo "$K8S_CONFIG"
      - kubectl get pods
      - kubectl delete secret db-user-pass
      - kubectl create secret generic db-user-pass --from-file=app_env
