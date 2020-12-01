@@ -7,21 +7,25 @@ environment:
 steps:
 - name: build
   image: alpine/git
+  environment:
+    APP_ENV:
+      from_secret: app_env
   commands:
-    - echo $DRONE_COMMIT
-    - ping localhost
-- name: docker build & push
-  image: plugins/docker
-  settings:
-    username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
-    repo: harbor.atompai.com/ops/xb
-    # tags: $harbor-tag
-    auto_tag: true
-    auto_tag_suffix: ${DRONE_COMMIT}
-    registry: harbor.atompai.com
+     - echo -n $APP_ENV
+     - echo -n $APP_ENV > a
+     - cat a
+      #- name: docker build & push
+      #  image: plugins/docker
+      #  settings:
+      #    username:
+      #      from_secret: docker_username
+      #    password:
+      #      from_secret: docker_password
+      #    repo: harbor.atompai.com/ops/xb
+      #    # tags: $harbor-tag
+      #    auto_tag: true
+      #    auto_tag_suffix: ${DRONE_COMMIT}
+      #    registry: harbor.atompai.com
 trigger:
   event:
   - push
