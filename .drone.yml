@@ -15,7 +15,7 @@ steps:
     tags: production
     registry: harbor.atompai.com
 - name: deploy
-  image: harbor.atompai.com/ops/nx-k8s-deploy
+  image: harbor.atompai.com/ops/kubectl:1.19.4
   environment:
     APP_ENV:
       from_secret: app_env
