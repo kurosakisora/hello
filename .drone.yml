@@ -40,7 +40,7 @@ image_pull_secrets:
 - k8s_deploy_dockerconfig
 trigger:
   event:
-      #  - push
+  - push
   - promote
   branch:
   - test
