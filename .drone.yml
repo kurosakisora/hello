@@ -11,10 +11,14 @@ steps:
     APP_ENV:
       from_secret: app_env
   commands:
-     - echo -n "$APP_ENV"
-     - echo -n "$${APP_ENV}"
-     - echo -n $APP_ENV > a
+     - echo "$APP_ENV"
+     - echo "${APP_ENV}"
+     - echo "$${APP_ENV}"
+     - echo "$APP_ENV" > a
+     - echo "${APP_ENV}" > a
+     - echo "$${APP_ENV}" > a
      - cat a
+     - env
       #- name: docker build & push
       #  image: plugins/docker
       #  settings:
