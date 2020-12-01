@@ -23,7 +23,7 @@ steps:
     target:
       include:
         - production
-        - production-env
+        - production_env
   environment:
     APP_ENV:
       from_secret: app_env
