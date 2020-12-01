@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ngx
+  #  namespace: spark
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app-name: ngx
+  template:
+    metadata:
+      labels:
+        app-name: ngx
+    spec:
+            #      nodeSelector:
+              #        kubernetes.io/hostname: "guanzhong"
+#        lifecycle:  Ec2Spot
+#        node-type: gpu
+      containers:
+      - image: nginx
+        #- image: 477093822308.dkr.ecr.us-east-2.amazonaws.com/ops/nginx
+        name: ngx
+        #        imagePullPolicy: IfNotPresent
+
+        ports:
+        - name: pod
+          containerPort: 80
