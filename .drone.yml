@@ -5,11 +5,6 @@ name: ops-test
 steps:
 - name: docker build & push
   image: plugins/docker
-  when:
-    event:
-    - promote
-    target:
-    - production
   settings:
     username:
       from_secret: docker_username
@@ -22,8 +17,6 @@ steps:
 - name: deploy
   image: harbor.atompai.com/ops/nx-k8s-deploy
   when:
-    event:
-    - promote
     target:
     - production
   environment:
@@ -51,6 +44,4 @@ trigger:
   - push
   - promote
   branch:
-  - production
-  target:
   - production
