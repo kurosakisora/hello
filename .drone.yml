@@ -5,6 +5,9 @@ name: ops-test
 steps:
 - name: docker build & push
   image: plugins/docker
+  when:
+    target:
+    - build
   settings:
     username:
       from_secret: docker_username
