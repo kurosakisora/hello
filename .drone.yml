@@ -21,6 +21,11 @@ steps:
       from_secret: app_env
     K8S_CONFIG:
       from_secret: k8s_config
+  when:
+    event:
+    - promote
+    target:
+    - production
   commands:
       # - mkdir /root/.kube
      - echo "$APP_ENV" > app_env
@@ -34,11 +39,6 @@ steps:
       #    - kubectl get pods
       #    - sleep 30
       #    - kubectl get pods
-  when:
-    event:
-    - promote
-    target:
-    - production
 image_pull_secrets:
 - k8s_deploy_dockerconfig
 trigger:
