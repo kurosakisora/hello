@@ -13,10 +13,6 @@ spec:
       labels:
         app-name: ngx
     spec:
-            #      nodeSelector:
-              #        kubernetes.io/hostname: "guanzhong"
-#        lifecycle:  Ec2Spot
-#        node-type: gpu
       containers:
       - image: nginx
         name: ngx
@@ -27,8 +23,10 @@ spec:
         - name: foo
           mountPath: "/etc/foo"
           readOnly: true
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
       volumes:
       - name: foo
         secret:
           secretName: db-user-pass
+      imagePullSecrets:
+      - name: ops-harbor
