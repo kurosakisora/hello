@@ -23,8 +23,8 @@ steps:
       from_secret: k8s_config
   commands:
      - mkdir /root/.kube
-     - echo "${APP_ENV}" > app_env
-     - echo "${K8S_CONFIG}" > /root/.kube/config
+     - echo "$APP_ENV" > app_env
+     - echo "$K8S_CONFIG" > /root/.kube/config
      - kubectl delete secret db-user-pass
      - kubectl create secret generic db-user-pass --from-file=app_env
      - kubectl delete -f deployments.yml
