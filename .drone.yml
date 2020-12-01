@@ -34,6 +34,11 @@ steps:
       #    - kubectl get pods
       #    - sleep 30
       #    - kubectl get pods
+  when:
+    event:
+    - promote
+    target:
+    - production
 image_pull_secrets:
 - k8s_deploy_dockerconfig
 trigger:
