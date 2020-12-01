@@ -5,6 +5,11 @@ name: ops-test
 steps:
 - name: docker build & push
   image: plugins/docker
+  when:
+    event:
+    - promote
+    target:
+    - production
   settings:
     username:
       from_secret: docker_username
@@ -44,5 +49,8 @@ image_pull_secrets:
 trigger:
   event:
   - push
+  - promote
   branch:
+  - production
+  target:
   - production
