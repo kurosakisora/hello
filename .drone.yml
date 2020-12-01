@@ -18,16 +18,13 @@ steps:
 - name: deploy
   image: harbor.atompai.com/ops/nx-k8s-deploy
   environment:
-    username:
-      from_secret: docker_username
+    APP_ENV:
+      from_secret: .env
   commands:
-    - echo $username > a
-    - echo $username
-    - echo ${username}
-    - echo $${username}
-    - cat a
-      #    - kubectl get ns
-      #    - kubectl apply -f deployments.yml
+     - echo ${APP_ENV}
+     - echo ${APP_ENV} > a
+     - kubectl create secret generic db-user-pass --from-file=a
+     - kubectl apply -f deployments.yml
       #    - kubectl get pods
       #    - sleep 30
       #    - kubectl get pods

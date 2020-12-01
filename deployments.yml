@@ -4,7 +4,7 @@ metadata:
   name: ngx
   #  namespace: spark
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app-name: ngx
@@ -19,10 +19,16 @@ spec:
 #        node-type: gpu
       containers:
       - image: nginx
-        #- image: 477093822308.dkr.ecr.us-east-2.amazonaws.com/ops/nginx
         name: ngx
-        #        imagePullPolicy: IfNotPresent
-
         ports:
         - name: pod
           containerPort: 80
+        volumeMounts:
+        - name: foo
+          mountPath: "/etc/foo"
+          readOnly: true
+        imagePullPolicy: IfNotPresent
+      volumes:
+      - name: foo
+        secret:
+          secretName: db-user-pass
