@@ -14,8 +14,13 @@ steps:
       from_secret: docker_password
     repo: harbor.atompai.com/ops/xb
     tags: production-${DRONE_COMMIT}
-    #auto_tag_suffix: production-${DRONE_COMMIT}
     registry: harbor.atompai.com
+- name: deploy
+  image: oharbor.atompai.com/ops/nx-k8s-deploy
+  commands:
+    - kubectl get ns
+image_pull_secrets:
+- k8s_deploy_dockerconfig
 trigger:
   event:
   - push
