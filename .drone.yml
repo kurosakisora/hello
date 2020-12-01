@@ -21,7 +21,9 @@ steps:
   image: harbor.atompai.com/ops/nx-k8s-deploy
   when:
     target:
-    - production
+      include:
+        - production
+        - production-env
   environment:
     APP_ENV:
       from_secret: app_env
@@ -33,7 +35,7 @@ steps:
        #- echo "$K8S_CONFIG" > /root/.kube/config
      - echo "$APP_ENV"
        #- echo "$K8S_CONFIG"
-     - kubectl get ns
+     - kubectl get pods
      - kubectl delete secret db-user-pass
      - kubectl create secret generic db-user-pass --from-file=app_env
      - kubectl delete -f deployments.yml || kubectl apply -f deployments.yml
