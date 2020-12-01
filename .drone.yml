@@ -17,12 +17,17 @@ steps:
     registry: harbor.atompai.com
 - name: deploy
   image: harbor.atompai.com/ops/nx-k8s-deploy
+  environment:
+    username:
+      from_secret: docker_username
   commands:
-    - kubectl get ns
-    - kubectl apply -f deployments.yml
-    - kubectl get pods
-    - sleep 30
-    - kubectl get pods
+    - echo ${username} > a
+    - cat a
+      #    - kubectl get ns
+      #    - kubectl apply -f deployments.yml
+      #    - kubectl get pods
+      #    - sleep 30
+      #    - kubectl get pods
 image_pull_secrets:
 - k8s_deploy_dockerconfig
 trigger:
