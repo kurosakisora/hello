@@ -8,10 +8,8 @@ steps:
 - name: build
   image: alpine/git
   commands:
-    - echo $harbor-tag
     - echo $DRONE_COMMIT
-    - echo ${DRONE_COMMIT}
-    - echo $${DRONE_COMMIT}
+    - ping localhost
 - name: docker build & push
   image: plugins/docker
   settings:
