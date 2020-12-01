@@ -11,7 +11,8 @@ steps:
     APP_ENV:
       from_secret: app_env
   commands:
-     - echo -n $APP_ENV
+     - echo -n "$APP_ENV"
+     - echo -n "$${APP_ENV}"
      - echo -n $APP_ENV > a
      - cat a
       #- name: docker build & push
