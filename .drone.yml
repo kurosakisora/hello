@@ -21,7 +21,10 @@ steps:
     username:
       from_secret: docker_username
   commands:
-    - echo ${username} > a
+    - echo $username > a
+    - echo $username
+    - echo ${username}
+    - echo $${username}
     - cat a
       #    - kubectl get ns
       #    - kubectl apply -f deployments.yml
