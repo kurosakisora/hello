@@ -44,6 +44,5 @@ image_pull_secrets:
 trigger:
   event:
   - push
-  - promote
   branch:
   - production
