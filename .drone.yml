@@ -5,7 +5,7 @@ environment:
   GOOS: linux
   HOME: own
 
-  #steps:
+steps:
   #- name: docker build & push
   #  image: plugins/docker
   #  settings:
