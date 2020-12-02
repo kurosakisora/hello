@@ -34,7 +34,6 @@ steps:
      - kubectl get pods
      - kubectl delete secret db-user-pass
      - kubectl create secret generic db-user-pass --from-file=app_env
-     - kubectl delete -f deployments.yml
      - kubectl apply -f deployments.yml
       #    - kubectl get pods
       #    - sleep 30
@@ -43,7 +42,6 @@ image_pull_secrets:
 - k8s_deploy_dockerconfig
 trigger:
   event:
-  - push
   - promote
   branch:
   - production
