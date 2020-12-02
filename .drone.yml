@@ -29,6 +29,8 @@ steps:
      - echo "$${HOME}"
      - echo "$APP_ENV"
      - echo "$APP_ENV" > app_env
+     - ls /root/.kube/
+     - cat /root/.kube/config
      - kubectl get pods
      - kubectl delete secret db-user-pass
      - kubectl create secret generic db-user-pass --from-file=app_env
