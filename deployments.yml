@@ -14,7 +14,7 @@ spec:
         app-name: ngx
     spec:
       containers:
-      - image: nginx
+      - image: harbor.atompai.com/ops/nginx
         name: ngx
         ports:
         - name: pod
