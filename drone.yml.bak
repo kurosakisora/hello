@@ -8,6 +8,9 @@ environment:
 steps:
 - name: docker build & push
   image: plugins/docker
+  when:
+    target:
+    - production
   settings:
     username:
       from_secret: docker_username
@@ -19,6 +22,11 @@ steps:
     registry: harbor.atompai.com
 - name: deploy
   image: harbor.atompai.com/ops/nx-k8s-deploy
+  when:
+    target:
+      include:
+        - production
+        - production_env
   environment:
     APP_ENV:
       from_secret: app_env
@@ -41,5 +49,6 @@ image_pull_secrets:
 trigger:
   event:
   - push
+  - promote
   branch:
   - production
