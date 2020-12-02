@@ -21,7 +21,7 @@ spec:
           containerPort: 80
         volumeMounts:
         - name: foo
-          mountPath: "/etc/foo"
+          mountPath: "/usr/share/nginx/html"
           readOnly: true
         imagePullPolicy: Always
       volumes:
